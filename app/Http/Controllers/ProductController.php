@@ -13,7 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return 'index';
+        $products = Product::all();
+
+        return view('products.index', ['products' => $products]);
     }
 
     /**
@@ -35,9 +37,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($product)
+    public function show($id)
     {
-        return 'show ' . $product;
+        //  根據 ID 找到那個商品
+        $product = Product::find($id);
+        //  把商品資料傳給 show.blade.php
+        return view('products.show', ['product' => $product]);
     }
 
     /**
