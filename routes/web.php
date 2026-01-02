@@ -5,6 +5,7 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -79,5 +80,5 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 
 Route::resource('cart_items', CartItemController::class);
-
+Route::resource('orders', OrderController::class);
 });
