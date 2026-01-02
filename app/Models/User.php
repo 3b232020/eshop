@@ -61,4 +61,16 @@ class User extends Authenticatable
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+    //與購物車的關聯
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+
+    // 與訂單的關聯
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
 }
